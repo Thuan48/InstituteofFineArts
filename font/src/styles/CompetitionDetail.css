@@ -1,0 +1,144 @@
+.detail-container {
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.detail-content {
+  margin-top: 4rem;
+}
+
+.card-container {
+  background: linear-gradient(to bottom right, #1e3a8a, #2563eb);
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.card-container:hover {
+  transform: scale(1.05);
+}
+
+.card-content {
+  padding: 1.5rem;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+.card-status {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  font-weight: bold;
+  border-radius: 0.25rem;
+}
+
+.card-status.open {
+  background-color: #34d399;
+  color: #065f46;
+}
+
+.card-status.closed {
+  background-color: #f87171;
+  color: #7f1d1d;
+}
+
+.card-description {
+  color: #d1d5db;
+  margin-bottom: 1rem;
+}
+
+.card-details {
+  color: white;
+}
+
+.join-button {
+  margin-top: 2rem;
+  background-color: #3b82f6;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.join-button:hover {
+  transform: scale(1.05);
+}
+
+.form-container {
+  margin-top: 2rem;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+}
+
+.form-input {
+  margin-bottom: 1rem;
+}
+
+.form-input label {
+  display: block;
+  color: #4b5563;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.form-input input,
+.form-input textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.25rem;
+  color: #4b5563;
+}
+
+.form-input input:focus,
+.form-input textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-actions button {
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  font-weight: bold;
+}
+
+.form-actions .submit-button {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.form-actions .cancel-button {
+  background-color: #6b7280;
+  color: white;
+}
+
+.users-joined {
+  margin-top: 2rem;
+}
+
+.users-joined h3 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.users-joined ul {
+  list-style: none;
+  padding: 0;
+}
+
+.users-joined li {
+  margin-bottom: 0.5rem;
+}

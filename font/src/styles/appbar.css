@@ -1,0 +1,62 @@
+.home-appbar {
+  background: linear-gradient(45deg, #2196f3 30%, #21cbf3 90%);
+  box-shadow: 0 3px 5px 2px rgba(33, 203, 243, 0.3);
+  position: fixed;
+  width: 100%;
+  z-index: 1100;
+  transition: all 0.3s ease-in-out;
+}
+
+.home-appbar:hover {
+  box-shadow: 0 6px 10px 4px rgba(33, 203, 243, 0.4);
+}
+
+.home-appbar .MuiToolbar-root {
+  min-height: 64px;
+  padding: 0 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home-appbar .app-title {
+  font-weight: bold;
+  color: #fff;
+  flex-grow: 1;
+  text-align: center;
+  font-size: 1.5rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.home-appbar .menu-button {
+  color: #fff;
+  transition: transform 0.2s ease-in-out;
+}
+
+.home-appbar .menu-button:hover {
+  transform: rotate(90deg);
+}
+
+.home-appbar .user-avatar {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease-in-out;
+}
+
+.home-appbar .user-avatar:hover {
+  border-color: #21cbf3;
+  box-shadow: 0 4px 8px rgba(33, 203, 243, 0.5);
+}
+
+@media (max-width: 600px) {
+  .home-appbar .app-title {
+    font-size: 1.2rem;
+  }
+
+  .home-appbar .user-avatar {
+    width: 32px;
+    height: 32px;
+  }
+}
