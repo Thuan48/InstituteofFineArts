@@ -1,17 +1,15 @@
+import {
+  Alert,
+  Box,
+  Button,
+  Container,
+  Rating,
+  Typography
+} from '@mui/material';
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { getAllExhibitionSubmissions, updateExhibitionSubmission } from '../Redux/ExhibitionSubmission/Action';
-import {
-  Container,
-  Typography,
-  Card,
-  CardContent,
-  Alert,
-  Button,
-  Rating,
-  Box
-} from '@mui/material';
 import HomeAppBar from './HomeAppBar';
 
 const SubmissionDetailPage = () => {

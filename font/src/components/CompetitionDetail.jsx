@@ -1,15 +1,15 @@
+import { Alert, Snackbar } from "@mui/material";
+import { motion } from "framer-motion";
+import { Award, CalendarDays, Info, ScrollText } from "lucide-react";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 import { getCompetitionById } from "../Redux/Competition/Action";
 import { addSubmission, getAllSubmissions, updateSubmission } from "../Redux/Submissions/Action";
-import HomeAppBar from "./HomeAppBar";
-import { motion } from "framer-motion";
 import { fetchCurrentUser } from "../Redux/User/Action";
-import { getToken } from "../utils/tokenManager";
 import "../styles/CompetitionDetail.css";
-import { Snackbar, Alert } from "@mui/material";
-import { CalendarDays, Award, ScrollText, Info } from "lucide-react";
+import { getToken } from "../utils/tokenManager";
+import HomeAppBar from "./HomeAppBar";
 
 const CompetitionDetail = () => {
   const { id } = useParams();
@@ -135,8 +135,8 @@ const CompetitionDetail = () => {
 
                 <div className="card-details">
                   <div className="flex items-center ">
-                      <Info className="w-5 h-5 mr-2 symbol" />
-                      <span> </span> {selectedCompetition.description}
+                    <Info className="w-5 h-5 mr-2 symbol" />
+                    <span> </span> {selectedCompetition.description}
                   </div>
                   <div className="flex items-center items">
                     <CalendarDays className="w-5 h-5 mr-2 symbol" />
@@ -166,7 +166,7 @@ const CompetitionDetail = () => {
                   .map(sub => sub.user?.name.trim()) // Lấy tên student duy nhất
                 ).size})
               </h3>
-              <div className="table-container">
+
               <table className="tablelist">
                 <thead>
                   <tr>
@@ -187,8 +187,6 @@ const CompetitionDetail = () => {
                     ))}
                 </tbody>
               </table>
-              </div>
-              
             </div>
 
 
@@ -199,14 +197,17 @@ const CompetitionDetail = () => {
             {!isCompetitionEnded && selectedCompetition.status !== "Upcoming" && currentUser?.role === "STUDENT" && (
               <>
                 {userSubmission && !isCompetitionEnded ? (
-                  <motion.button
-                    className="join-button"
-                    onClick={handleEditSubmission}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    Edit Submission
-                  </motion.button>
+                  <div className="flex justify-center">
+                    <motion.button
+                      className="join-button"
+                      onClick={handleEditSubmission}
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      Edit Submission
+                    </motion.button>
+                  </div>
+
                 ) : (
                   <motion.button
                     className="join-button"

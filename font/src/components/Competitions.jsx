@@ -1,9 +1,9 @@
+import { Button, ButtonGroup, Container, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllCompetitions } from '../Redux/Competition/Action';
-import { Container, Typography, Button, ButtonGroup } from '@mui/material';
-import HomeAppBar from './HomeAppBar';
 import CompetitionCard from './CompetitionCard';
+import HomeAppBar from './HomeAppBar';
 
 const Competitions = () => {
   const dispatch = useDispatch();
@@ -24,7 +24,7 @@ const Competitions = () => {
   return (
     <>
       <HomeAppBar />
-      <Container style={{ marginTop: '3rem' }}>
+      <Container style={{ marginTop: '5rem' }}>
         <Typography variant="h4" gutterBottom>
           Competitions
         </Typography>
