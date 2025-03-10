@@ -10,7 +10,7 @@ import TextField from '@mui/material/TextField'
 
 const Student = () => {
   const dispatch = useDispatch()
-  const { users, currentUser } = useSelector(state => state.users)
+  const { users, currentUser } = useSelector((state) => state.users);
   const token = getToken()
   const [searchTerm, setSearchTerm] = useState("")
   const navigate = useNavigate()

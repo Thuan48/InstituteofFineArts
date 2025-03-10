@@ -20,6 +20,14 @@ import StaffLayout from './components/Staff/StaffLayout';
 import StaffDashboard from './components/Staff/StaffDashboard';
 import Student from './components/Staff/Student';
 import ExhibitionPage from './components/ExhibitionPage';
+import Profile from './components/User/Profile';
+import ForgotPassword from './components/Auth/ForgotPassword';
+import ResetPassword from './components/Auth/ResetPassword';
+import ExhibitionDetailPage from './components/ExhibitionDetailPage';
+import SubmissionDetailPage from './components/SubmissionDetailPage';
+import ListSale from './components/Admin/ListSale';
+import CallBack from './components/User/CallBack';
+import About from './components/About';
 
 function App() {
   return (
@@ -29,6 +37,7 @@ function App() {
       <Route path="/admin" element={<DashboardLayout />}>
         <Route path="dashboard" element={<Dashboard />} />
         <Route path="users" element={<ListUser />} />
+        <Route path="sales" element={<ListSale />} />
       </Route>
       <Route path="/student" element={<StudentLayout />}>
         <Route path="dashboard" element={<StudentDashboard />} />
@@ -48,6 +57,14 @@ function App() {
       </Route>
       <Route path="/user/:id" element={<UserDetail />} />
       <Route path="/exhibition" element={<ExhibitionPage />} />
+      <Route path="/profile" element={<Profile />} />
+      <Route path="/forgot-password" element={<ForgotPassword />} />
+      <Route path="/reset-password" element={<ResetPassword />} />
+      <Route path="/exhibition" element={<ExhibitionPage />} />
+      <Route path="/submission/:id" element={<SubmissionDetailPage />} />
+      <Route path="/exhibition/:id" element={<ExhibitionDetailPage />} />
+      <Route path="/callback" element={<CallBack />} />
+      <Route path="/aboutus" element={<About />} />
     </Routes>
   );
 }

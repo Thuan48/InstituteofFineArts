@@ -11,6 +11,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Hosting;
 using System.IO;
+using demo.Service;
 
 namespace demo.Repository
 {
@@ -18,11 +19,15 @@ namespace demo.Repository
     {
         private readonly DatabaseContext _context;
         private readonly IWebHostEnvironment _env;
+        private readonly IMailService _mailService;
+        private readonly IConfiguration _configuration;
 
-        public UserRepo(DatabaseContext context, IWebHostEnvironment env)
+        public UserRepo(DatabaseContext context, IWebHostEnvironment env, IMailService mailService, IConfiguration configuration)
         {
             _context = context;
             _env = env;
+            _mailService = mailService;
+            _configuration = configuration;
         }
 
         public IEnumerable<Users> GetAll()
@@ -113,37 +118,79 @@ namespace demo.Repository
             var user = await _context.Users.FindAsync(id);
             if (user == null)
             {
-                return new CustomResult(404, "User not found", 00);
+                return new CustomResult(404, "User not found", 0);
             }
-            user.Password = newPassword;
+            user.Password = BCrypt.Net.BCrypt.HashPassword(newPassword);
             user.UpdatedAt = DateTime.Now;
             await _context.SaveChangesAsync();
             return new CustomResult(200, "Password changed successfully", user);
         }
 
-        public async Task<CustomResult> ResetPassword(int id)
+        public async Task<CustomResult> ResetPassword(ResetPasswordDto resetPasswordDto)
         {
-            var user = await _context.Users.FindAsync(id);
+            var user = await _context.Users.FindAsync(resetPasswordDto.UserId);
             if (user == null)
             {
-                return new CustomResult(404, "User not found", 00);
+                return new CustomResult(404, "User not found", 0);
             }
-            user.Password = "defaultPassword";
+
+            var temporaryCode = await _context.TemporaryCodes
+                .FirstOrDefaultAsync(tc => tc.UserId == resetPasswordDto.UserId && tc.Code == resetPasswordDto.Code);
+
+            if (temporaryCode == null || temporaryCode.ExpiryTime < DateTime.Now)
+            {
+                return new CustomResult(400, "Invalid or expired code", 0);
+            }
+
+            user.Password = BCrypt.Net.BCrypt.HashPassword(resetPasswordDto.NewPassword);
             user.UpdatedAt = DateTime.Now;
             await _context.SaveChangesAsync();
+
+            _context.TemporaryCodes.Remove(temporaryCode);
+            await _context.SaveChangesAsync();
+
             return new CustomResult(200, "Password reset successfully", user);
         }
 
-        public async Task<CustomResult> ForgotPassword(string email)
+        public async Task<CustomResult> ForgotPassword(ForgotPasswordDto forgotPasswordDto)
         {
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == forgotPasswordDto.Email);
             if (user == null)
             {
-                return new CustomResult(404, "User not found", 00);
+                return new CustomResult(404, "User not found", 0);
             }
 
+            var temporaryCode = await _context.TemporaryCodes.FirstOrDefaultAsync(tc => tc.UserId == user.UserId);
+            if (temporaryCode == null)
+            {
+                temporaryCode = new TemporaryCode
+                {
+                    UserId = user.UserId,
+                    Code = new Random().Next(100000, 999999).ToString(),
+                    ExpiryTime = DateTime.Now.AddMinutes(10)
+                };
+                _context.TemporaryCodes.Add(temporaryCode);
+            }
+            else
+            {
+                temporaryCode.Code = new Random().Next(100000, 999999).ToString();
+                temporaryCode.ExpiryTime = DateTime.Now.AddMinutes(10);
+                _context.TemporaryCodes.Update(temporaryCode);
+            }
 
-            return new CustomResult(200, "Reset password email sent", 00);
+            await _context.SaveChangesAsync();
+
+            var url = $"{_configuration["ClientInfo:Url"]}/reset-password?code={temporaryCode.Code}&userid={user.UserId}";
+
+            await _mailService.SendMailAsync(new MailRequest()
+            {
+                ToEmail = forgotPasswordDto.Email,
+                Body = GenerateEmailBody(url, "reset your password", temporaryCode.Code),
+                Subject = "Password Reset Confirmation",
+                Attachments = null
+            });
+
+            return new CustomResult(200, "Reset password email sent", temporaryCode);
         }
 
         public async Task<CustomResult> UpdateRole(int id, string newRole)
@@ -189,6 +236,11 @@ namespace demo.Repository
         {
             string ext = Path.GetExtension(originalName);
             return $"{Guid.NewGuid()}{ext}";
+        }
+
+        private string GenerateEmailBody(string url, string action, string code)
+        {
+            return $"Please click <a href=\"{url}\">here</a> to {action}. Your code is {code}";
         }
     }
 }

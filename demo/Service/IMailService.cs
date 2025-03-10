@@ -1,4 +1,5 @@
-﻿using demo.Dto;
+﻿
+using demo.Model;
 
 namespace demo.Service
 {

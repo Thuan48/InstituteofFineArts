@@ -169,6 +169,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "demo.Controllers.CheckOutController",
+    "Method": "CreatePaymentUrl",
+    "RelativePath": "api/CheckOut/create-payment-url",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "demo.Model.VnPay.PaymentInformationModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "demo.Controllers.CheckOutController",
+    "Method": "PaymentExecute",
+    "RelativePath": "api/CheckOut/payment-execute",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "demo.Controllers.CompetitionController",
     "Method": "AddCompetition",
     "RelativePath": "api/Competition",
@@ -513,7 +539,18 @@
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "pageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -618,7 +655,18 @@
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "pageNumber",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "pageSize",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
     "ReturnTypes": []
   },
   {
@@ -698,6 +746,48 @@
         "IsRequired": false
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "demo.Controllers.OrderController",
+    "Method": "CreateOrder",
+    "RelativePath": "api/Order/create-order",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "demo.Dto.CreateOrderRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "demo.Controllers.PaymentController",
+    "Method": "CreatePaymentUrl",
+    "RelativePath": "api/Payment/create-payment",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "model",
+        "Type": "demo.Model.VnPay.PaymentInformationModel",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "demo.Controllers.PaymentController",
+    "Method": "PaymentCallback",
+    "RelativePath": "api/Payment/payment-execute",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -1072,22 +1162,6 @@
   },
   {
     "ContainingType": "demo.Controllers.UserController",
-    "Method": "ResetPassword",
-    "RelativePath": "api/User/{id}/reset-password",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "demo.Controllers.UserController",
     "Method": "UpdateRole",
     "RelativePath": "api/User/{id}/update-role",
     "HttpMethod": "POST",
@@ -1136,8 +1210,8 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "email",
-        "Type": "System.String",
+        "Name": "forgotPasswordDto",
+        "Type": "demo.Dto.ForgotPasswordDto",
         "IsRequired": true
       }
     ],
@@ -1178,6 +1252,22 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "demo.Controllers.UserController",
+    "Method": "ResetPassword",
+    "RelativePath": "api/User/reset-password",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "resetPasswordDto",
+        "Type": "demo.Dto.ResetPasswordDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "demo.Controllers.UserController",

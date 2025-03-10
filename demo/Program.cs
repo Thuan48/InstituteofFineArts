@@ -1,4 +1,3 @@
-
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -9,6 +8,9 @@ using demo.Repository;
 using Swashbuckle.AspNetCore.Filters;
 using System.Text;
 using System.Text.Json.Serialization;
+using demo.Service;
+using demo.Settings;
+using demo.Service.VnPay;
 
 var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
@@ -76,7 +78,11 @@ builder.Services.AddTransient<IEvaluationRepo, EvaluationRepo>();
 builder.Services.AddTransient<ISaleRepo, SaleRepo>();
 builder.Services.AddTransient<ISubmissionRepo, SubmissionRepo>();
 builder.Services.AddTransient<IUserRepo, UserRepo>();
+builder.Services.AddTransient<IMailService, MailService>();
 builder.Services.AddTransient<IExhibitionSubmissionRepo, ExhibitionSubmissionRepo>();
+builder.Services.AddTransient<IVnPayService, VnPayService>();
+
+builder.Services.Configure<MailSettings>(builder.Configuration.GetSection("MailSettings"));
 
 var app = builder.Build();
 

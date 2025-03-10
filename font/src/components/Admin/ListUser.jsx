@@ -133,11 +133,6 @@ const ListUser = () => {
     }
   };
 
-  const handleSelectionChange = (newSelection) => {
-    console.log("User IDs selected:", newSelection);
-    setSelectedRowIds(newSelection);
-  };
-
   const handleMultiUpdateRole = () => {
     selectedRowIds.forEach(id => {
       dispatch(updateRole(id, multiRole));
@@ -146,12 +141,6 @@ const ListUser = () => {
     setMultiRole("");
     setShowMultiRoleDialog(false);
   };
-
-  useEffect(() => {
-    if (selectedRowIds.length > 0) {
-      console.log("Selected Row Ids: ", selectedRowIds);
-    }
-  })
 
   const imageLink = import.meta.env.VITE_API_IMAGE_PATH;
 

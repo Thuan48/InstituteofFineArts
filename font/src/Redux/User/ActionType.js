@@ -6,3 +6,6 @@ export const UPDATE_USER = 'UPDATE_USER';
 export const DELETE_USER = 'DELETE_USER';
 export const EXPORT_EXCEL = 'EXPORT_EXCEL';
 export const IMPORT_EXCEL = 'IMPORT_EXCEL';
+export const CHANGE_PASSWORD = 'CHANGE_PASSWORD';
+export const FORGOT_PASSWORD = 'FORGOT_PASSWORD';
+export const RESET_PASSWORD = 'RESET_PASSWORD';

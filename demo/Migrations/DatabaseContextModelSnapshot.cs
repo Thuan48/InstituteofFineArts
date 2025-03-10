@@ -90,6 +90,28 @@ namespace demo.Migrations
                             PrizeMoney = 1500.00m,
                             UpdatedAt = new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = 2
+                        },
+                        new
+                        {
+                            AwardId = 3,
+                            AwardTitle = "Best Creativity",
+                            CompetitionId = 3,
+                            CreatedAt = new DateTime(2023, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateAwarded = new DateTime(2023, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            PrizeMoney = 1200.00m,
+                            UpdatedAt = new DateTime(2023, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = 3
+                        },
+                        new
+                        {
+                            AwardId = 4,
+                            AwardTitle = "Best Execution",
+                            CompetitionId = 4,
+                            CreatedAt = new DateTime(2023, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DateAwarded = new DateTime(2023, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            PrizeMoney = 1300.00m,
+                            UpdatedAt = new DateTime(2023, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = 4
                         });
                 });
 
@@ -170,6 +192,30 @@ namespace demo.Migrations
                             Status = "O",
                             Title = "Competition 2",
                             UpdatedAt = new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CompetitionId = 3,
+                            CreatedAt = new DateTime(2023, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = 3,
+                            EndDate = new DateTime(2023, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Image = "comp3.png",
+                            StartDate = new DateTime(2023, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Status = "U",
+                            Title = "Competition 3",
+                            UpdatedAt = new DateTime(2023, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            CompetitionId = 4,
+                            CreatedAt = new DateTime(2023, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            CreatedBy = 4,
+                            EndDate = new DateTime(2023, 4, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Image = "comp4.png",
+                            StartDate = new DateTime(2023, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Status = "O",
+                            Title = "Competition 4",
+                            UpdatedAt = new DateTime(2023, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 
@@ -240,6 +286,28 @@ namespace demo.Migrations
                             Status = "R",
                             SubmissionId = 2,
                             UpdatedAt = new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            EvaluationId = 3,
+                            CreatedAt = new DateTime(2023, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EvaluationDate = new DateTime(2023, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Score = 88,
+                            StaffId = 3,
+                            Status = "P",
+                            SubmissionId = 3,
+                            UpdatedAt = new DateTime(2023, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            EvaluationId = 4,
+                            CreatedAt = new DateTime(2023, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EvaluationDate = new DateTime(2023, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Score = 92,
+                            StaffId = 4,
+                            Status = "R",
+                            SubmissionId = 4,
+                            UpdatedAt = new DateTime(2023, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 
@@ -304,6 +372,26 @@ namespace demo.Migrations
                             Status = "S",
                             SubmissionId = 2,
                             UpdatedAt = new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            ExhibitionSubmissionId = 3,
+                            CreatedAt = new DateTime(2023, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ExhibitionId = 3,
+                            Price = 0m,
+                            Status = "A",
+                            SubmissionId = 3,
+                            UpdatedAt = new DateTime(2023, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            ExhibitionSubmissionId = 4,
+                            CreatedAt = new DateTime(2023, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ExhibitionId = 4,
+                            Price = 0m,
+                            Status = "S",
+                            SubmissionId = 4,
+                            UpdatedAt = new DateTime(2023, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 
@@ -362,6 +450,24 @@ namespace demo.Migrations
                             Name = "Exhibition 2",
                             Status = "O",
                             UpdatedAt = new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            ExhibitionId = 3,
+                            CreatedAt = new DateTime(2023, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Date = new DateTime(2023, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Exhibition 3",
+                            Status = "U",
+                            UpdatedAt = new DateTime(2023, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            ExhibitionId = 4,
+                            CreatedAt = new DateTime(2023, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Date = new DateTime(2023, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Exhibition 4",
+                            Status = "O",
+                            UpdatedAt = new DateTime(2023, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 
@@ -396,6 +502,10 @@ namespace demo.Migrations
                     b.Property<decimal>("SoldPrice")
                         .HasColumnType("decimal(10,2)");
 
+                    b.Property<string>("TransactionRef")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("UpdatedAt")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
@@ -417,6 +527,7 @@ namespace demo.Migrations
                             PaymentStatus = "P",
                             SoldDate = new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SoldPrice = 500.00m,
+                            TransactionRef = "123456",
                             UpdatedAt = new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
@@ -428,7 +539,32 @@ namespace demo.Migrations
                             PaymentStatus = "R",
                             SoldDate = new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             SoldPrice = 750.00m,
+                            TransactionRef = "123456",
                             UpdatedAt = new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            SaleId = 3,
+                            Buyer = "Buyer 3",
+                            CreatedAt = new DateTime(2023, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ExhibitionSubmissionId = 3,
+                            PaymentStatus = "P",
+                            SoldDate = new DateTime(2023, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SoldPrice = 600.00m,
+                            TransactionRef = "123456",
+                            UpdatedAt = new DateTime(2023, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            SaleId = 4,
+                            Buyer = "Buyer 4",
+                            CreatedAt = new DateTime(2023, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            ExhibitionSubmissionId = 4,
+                            PaymentStatus = "R",
+                            SoldDate = new DateTime(2023, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            SoldPrice = 800.00m,
+                            TransactionRef = "123456",
+                            UpdatedAt = new DateTime(2023, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 
@@ -508,7 +644,55 @@ namespace demo.Migrations
                             Title = "Submission 2",
                             UpdatedAt = new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             UserId = 2
+                        },
+                        new
+                        {
+                            SubmissionId = 3,
+                            CompetitionId = 3,
+                            CreatedAt = new DateTime(2023, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FilePath = "file3.pdf",
+                            Status = "P",
+                            SubmitDate = new DateTime(2023, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Submission 3",
+                            UpdatedAt = new DateTime(2023, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = 3
+                        },
+                        new
+                        {
+                            SubmissionId = 4,
+                            CompetitionId = 4,
+                            CreatedAt = new DateTime(2023, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FilePath = "file4.pdf",
+                            Status = "A",
+                            SubmitDate = new DateTime(2023, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Title = "Submission 4",
+                            UpdatedAt = new DateTime(2023, 3, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            UserId = 4
                         });
+                });
+
+            modelBuilder.Entity("demo.Model.TemporaryCode", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Code")
+                        .IsRequired()
+                        .HasMaxLength(255)
+                        .HasColumnType("nvarchar(255)");
+
+                    b.Property<DateTime>("ExpiryTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TemporaryCodes");
                 });
 
             modelBuilder.Entity("demo.Model.Users", b =>
@@ -561,7 +745,7 @@ namespace demo.Migrations
                             CreatedAt = new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "admin@gmail.com",
                             Name = "Admin User",
-                            Password = "$2a$12$p6SajsJcQBaDyh2eMg54huGoVjNJxUaiCcDa81dWifXKnAlBbZoVa",
+                            Password = "$2a$11$uQV1ZCpc0kirSkN5WHWPYOXwNSQUl31N0AD6zArCLQNWTjpULJqC6",
                             ProfileImage = "admin.png",
                             Role = "ADMIN",
                             UpdatedAt = new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -572,7 +756,7 @@ namespace demo.Migrations
                             CreatedAt = new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "staff@gmail.com",
                             Name = "Staff User",
-                            Password = "$2a$12$p6SajsJcQBaDyh2eMg54huGoVjNJxUaiCcDa81dWifXKnAlBbZoVa",
+                            Password = "$2a$11$uQV1ZCpc0kirSkN5WHWPYOXwNSQUl31N0AD6zArCLQNWTjpULJqC6",
                             ProfileImage = "staff.png",
                             Role = "STAFF",
                             UpdatedAt = new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -583,7 +767,7 @@ namespace demo.Migrations
                             CreatedAt = new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "manager@gmail.com",
                             Name = "Manager User",
-                            Password = "$2a$12$p6SajsJcQBaDyh2eMg54huGoVjNJxUaiCcDa81dWifXKnAlBbZoVa",
+                            Password = "$2a$11$uQV1ZCpc0kirSkN5WHWPYOXwNSQUl31N0AD6zArCLQNWTjpULJqC6",
                             ProfileImage = "staff.png",
                             Role = "MANAGER",
                             UpdatedAt = new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -594,7 +778,7 @@ namespace demo.Migrations
                             CreatedAt = new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Email = "student@gmail.com",
                             Name = "Student User",
-                            Password = "$2a$12$p6SajsJcQBaDyh2eMg54huGoVjNJxUaiCcDa81dWifXKnAlBbZoVa",
+                            Password = "$2a$11$uQV1ZCpc0kirSkN5WHWPYOXwNSQUl31N0AD6zArCLQNWTjpULJqC6",
                             ProfileImage = "staff.png",
                             Role = "STUDENT",
                             UpdatedAt = new DateTime(2023, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
@@ -629,7 +813,7 @@ namespace demo.Migrations
                         .IsRequired();
 
                     b.HasOne("demo.Model.Submissions", "Submission")
-                        .WithMany()
+                        .WithMany("Evaluations")
                         .HasForeignKey("SubmissionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -686,6 +870,11 @@ namespace demo.Migrations
                     b.Navigation("Competition");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("demo.Model.Submissions", b =>
+                {
+                    b.Navigation("Evaluations");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,4 +1,4 @@
-﻿using demo.Dto;
+﻿using demo.Model;
 using demo.Settings;
 using MailKit.Net.Smtp;
 using Microsoft.Extensions.Options;
@@ -8,9 +8,9 @@ namespace demo.Service
 {
     public class MailService : IMailService
     {
-        private readonly MailSetting _settings;
+        private readonly MailSettings _settings;
 
-        public MailService(IOptions<MailSetting> mailSetting)
+        public MailService(IOptions<MailSettings> mailSetting)
         {
 
             _settings = mailSetting.Value;

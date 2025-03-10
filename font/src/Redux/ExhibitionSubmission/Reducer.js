@@ -9,6 +9,7 @@ import {
 
 const initialState = {
   exhibitionSubmissions: [],
+  totalRecords: 0,
   exhibitionSubmission: null,
 };
 
@@ -17,7 +18,8 @@ const exhibitionSubmissionReducer = (state = initialState, action) => {
     case GET_ALL_EXHIBITION_SUBMISSIONS:
       return {
         ...state,
-        exhibitionSubmissions: action.payload,
+        exhibitionSubmissions: action.payload.exhibitionSubmissions,
+        totalRecords: action.payload.totalRecords,
       };
     case GET_EXHIBITION_SUBMISSION_DETAIL:
       return {

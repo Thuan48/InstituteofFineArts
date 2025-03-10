@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Collections.Generic;
 
 namespace demo.Model
 {
@@ -27,9 +28,10 @@ namespace demo.Model
         public DateTime SubmitDate { get; set; }
 
         [Required]
-        public string? Status { get; set; } 
+        public string? Status { get; set; }
 
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
+        public ICollection<Evaluations>? Evaluations { get; set; }
     }
 }

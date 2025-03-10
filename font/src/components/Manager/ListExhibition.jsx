@@ -1,138 +1,188 @@
-import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
-import { getAllExhibitions, addExhibition, updateExhibition, deleteExhibition, searchExhibitions } from '../../Redux/Exhibition/Action'
-import { getAllExhibitionSubmissions, deleteExhibitionSubmission } from '../../Redux/ExhibitionSubmission/Action'
-import { Container, Typography, Card, CardContent, Grid, Alert, Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField, MenuItem, Pagination } from "@mui/material"
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllExhibitions, addExhibition, updateExhibition, deleteExhibition, searchExhibitions } from '../../Redux/Exhibition/Action';
+import { getAllExhibitionSubmissions, deleteExhibitionSubmission, updateExhibitionSubmission } from '../../Redux/ExhibitionSubmission/Action';
+import {
+  Container,
+  Typography,
+  Card,
+  CardContent,
+  Grid,
+  Alert,
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  TextField,
+  MenuItem,
+  Pagination
+} from "@mui/material";
 
 const ListExhibition = () => {
-  const dispatch = useDispatch()
-  const exhibitions = useSelector(state => state.exhibitions.exhibitions)
-  const exhibitionSubmissions = useSelector(state => state.exhibitionSubmissions.exhibitionSubmissions)
-  const [openDialog, setOpenDialog] = useState(false)
-  const [exhibitionName, setExhibitionName] = useState("")
-  const [exhibitionDate, setExhibitionDate] = useState("")
-  const [description, setDescription] = useState("")
-  const [status, setStatus] = useState("Upcoming")
-  const [selectedExhibition, setSelectedExhibition] = useState(null)
-  const [showSubmissions, setShowSubmissions] = useState(false)
-  const [confirmDeleteDialog, setConfirmDeleteDialog] = useState(false)
-  const [submissionToDelete, setSubmissionToDelete] = useState(null)
-  const [exhibitionToDelete, setExhibitionToDelete] = useState(null)
-  const [exhibitionToEdit, setExhibitionToEdit] = useState(null)
-  const [searchTerm, setSearchTerm] = useState("")
-  const [sortStatus, setSortStatus] = useState("")
-  const [exhibitionPage, setExhibitionPage] = useState(1)
-  const [submissionPage, setSubmissionPage] = useState(1)
-  const [exhibitionPageSize] = useState(6)
-  const [submissionPageSize] = useState(10)
+  const dispatch = useDispatch();
+  const exhibitions = useSelector(state => state.exhibitions.exhibitions || []);
+  const exhibitionSubmissions = useSelector(state => state.exhibitionSubmissions.exhibitionSubmissions || []);
+
+  // State cho Exhibitions
+  const [openDialog, setOpenDialog] = useState(false);
+  const [exhibitionName, setExhibitionName] = useState("");
+  const [exhibitionDate, setExhibitionDate] = useState("");
+  const [description, setDescription] = useState("");
+  const [status, setStatus] = useState("Upcoming");
+  const [selectedExhibition, setSelectedExhibition] = useState(null);
+  const [showSubmissions, setShowSubmissions] = useState(false);
+  const [confirmDeleteDialog, setConfirmDeleteDialog] = useState(false);
+  const [submissionToDelete, setSubmissionToDelete] = useState(null);
+  const [exhibitionToDelete, setExhibitionToDelete] = useState(null);
+  const [exhibitionToEdit, setExhibitionToEdit] = useState(null);
+
+  // State cho Search, Sort & Pagination
+  const [searchTerm, setSearchTerm] = useState("");
+  const [sortStatus, setSortStatus] = useState("");
+  const [exhibitionPage, setExhibitionPage] = useState(1);
+  const [submissionPage, setSubmissionPage] = useState(1);
+  const [exhibitionPageSize] = useState(6);
+  const [submissionPageSize] = useState(10);
+
+  // NEW: State lưu lỗi cho form thêm/edit exhibition
+  const [nameError, setNameError] = useState("");
+  const [dateError, setDateError] = useState("");
+
+  const imageLink = import.meta.env.VITE_API_IMAGE_PATH;
 
   useEffect(() => {
-    dispatch(getAllExhibitions(exhibitionPage, exhibitionPageSize))
-    dispatch(getAllExhibitionSubmissions(submissionPage, submissionPageSize))
-  }, [dispatch, exhibitionPage, submissionPage, exhibitionPageSize, submissionPageSize])
+    dispatch(getAllExhibitions(exhibitionPage, exhibitionPageSize));
+    dispatch(getAllExhibitionSubmissions(submissionPage, submissionPageSize));
+  }, [dispatch, exhibitionPage, submissionPage, exhibitionPageSize, submissionPageSize]);
 
+  // Hàm validate form: kiểm tra Exhibition Name và Exhibition Date
+  const validateExhibitionForm = () => {
+    let valid = true;
+    if (!exhibitionName.trim()) {
+      setNameError("Please enter exhibition name");
+      valid = false;
+    } else {
+      setNameError("");
+    }
+    if (!exhibitionDate) {
+      setDateError("Please enter exhibition date");
+      valid = false;
+    } else {
+      setDateError("");
+    }
+    return valid;
+  };
+
+  // ===== Exhibition functions =====
   const handleAddExhibition = async () => {
+    // Nếu form không hợp lệ => return
+    if (!validateExhibitionForm()) return;
+
     const exhibitionData = {
       name: exhibitionName,
       date: exhibitionDate,
       description: description,
       status: status
-    }
+    };
 
-    await dispatch(addExhibition(exhibitionData))
-    setOpenDialog(false)
-    setExhibitionName("")
-    setExhibitionDate("")
-    setDescription("")
-    setStatus("Upcoming")
-    dispatch(getAllExhibitions(exhibitionPage, exhibitionPageSize))
-  }
+    await dispatch(addExhibition(exhibitionData));
+    setOpenDialog(false);
+    setExhibitionName("");
+    setExhibitionDate("");
+    setDescription("");
+    setStatus("Upcoming");
+    dispatch(getAllExhibitions(exhibitionPage, exhibitionPageSize));
+  };
 
   const handleEditExhibition = (exhibition) => {
-    setExhibitionToEdit(exhibition)
-    setExhibitionName(exhibition.name)
-    setExhibitionDate(exhibition.date)
-    setDescription(exhibition.description)
-    setStatus(exhibition.status)
-    setOpenDialog(true)
-  }
+    setExhibitionToEdit(exhibition);
+    setExhibitionName(exhibition.name);
+    setExhibitionDate(exhibition.date);
+    setDescription(exhibition.description);
+    setStatus(exhibition.status);
+    setOpenDialog(true);
+  };
 
   const handleUpdateExhibition = async () => {
+    // Validate trước khi cập nhật
+    if (!validateExhibitionForm()) return;
+
     const exhibitionData = {
       name: exhibitionName,
       date: exhibitionDate,
       description: description,
       status: status
-    }
+    };
 
-    await dispatch(updateExhibition(exhibitionToEdit.exhibitionId, exhibitionData))
-    setOpenDialog(false)
-    setExhibitionToEdit(null)
-    setExhibitionName("")
-    setExhibitionDate("")
-    setDescription("")
-    setStatus("Upcoming")
-    dispatch(getAllExhibitions(exhibitionPage, exhibitionPageSize))
-  }
+    await dispatch(updateExhibition(exhibitionToEdit.exhibitionId, exhibitionData));
+    setOpenDialog(false);
+    setExhibitionToEdit(null);
+    setExhibitionName("");
+    setExhibitionDate("");
+    setDescription("");
+    setStatus("Upcoming");
+    dispatch(getAllExhibitions(exhibitionPage, exhibitionPageSize));
+  };
 
   const handleSelectExhibition = (exhibitionId) => {
-    setSelectedExhibition(exhibitionId)
-    setShowSubmissions(true)
-  }
-
-  const handleDeleteFromExhibition = (exhibitionSubmissionId) => {
-    setSubmissionToDelete(exhibitionSubmissionId)
-    setConfirmDeleteDialog(true)
-  }
-
-  const confirmDeleteSubmission = async () => {
-    await dispatch(deleteExhibitionSubmission(submissionToDelete))
-    setConfirmDeleteDialog(false)
-    setSubmissionToDelete(null)
-    dispatch(getAllExhibitionSubmissions(submissionPage, submissionPageSize))
-  }
+    setSelectedExhibition(exhibitionId);
+    setShowSubmissions(true);
+  };
 
   const handleDeleteExhibition = (exhibitionId) => {
-    setExhibitionToDelete(exhibitionId)
-    setConfirmDeleteDialog(true)
-  }
+    setExhibitionToDelete(exhibitionId);
+    setConfirmDeleteDialog(true);
+  };
 
   const confirmDeleteExhibition = async () => {
-    await dispatch(deleteExhibition(exhibitionToDelete))
-    setConfirmDeleteDialog(false)
-    setExhibitionToDelete(null)
-    dispatch(getAllExhibitions(exhibitionPage, exhibitionPageSize))
-  }
+    await dispatch(deleteExhibition(exhibitionToDelete));
+    setConfirmDeleteDialog(false);
+    setExhibitionToDelete(null);
+    dispatch(getAllExhibitions(exhibitionPage, exhibitionPageSize));
+  };
 
+  // ===== Submission functions =====
+  const handleDeleteFromExhibition = (exhibitionSubmissionId) => {
+    setSubmissionToDelete(exhibitionSubmissionId);
+    setConfirmDeleteDialog(true);
+  };
+
+  const confirmDeleteSubmission = async () => {
+    await dispatch(deleteExhibitionSubmission(submissionToDelete));
+    setConfirmDeleteDialog(false);
+    setSubmissionToDelete(null);
+    dispatch(getAllExhibitionSubmissions(submissionPage, submissionPageSize));
+  };
+
+  // ===== Search & Sort =====
   const handleSearch = () => {
-    dispatch(searchExhibitions(searchTerm))
-  }
+    dispatch(searchExhibitions(searchTerm));
+  };
 
   const handleSort = (e) => {
-    setSortStatus(e.target.value)
-  }
+    setSortStatus(e.target.value);
+  };
 
   const handleExhibitionPageChange = (event, value) => {
-    setExhibitionPage(value)
-  }
+    setExhibitionPage(value);
+  };
 
   const handleSubmissionPageChange = (event, value) => {
-    setSubmissionPage(value)
-  }
+    setSubmissionPage(value);
+  };
 
-  const selectedExhibitionSubmissions = exhibitionSubmissions.filter(es => es.exhibitionId === selectedExhibition)
+  const selectedExhibitionSubmissions = exhibitionSubmissions.filter(es => es.exhibitionId === selectedExhibition);
 
-  const sortedExhibitions = exhibitions.sort((a, b) => {
-    const statusOrder = ["Upcoming", "Ongoing", "Closed"]
-    const sortOrder = sortStatus === "asc" ? 1 : -1
-    return (statusOrder.indexOf(a.status) - statusOrder.indexOf(b.status)) * sortOrder
-  })
-
-  const imageLink = import.meta.env.VITE_API_IMAGE_PATH
+  const sortedExhibitions = exhibitions.length > 0 ? exhibitions.sort((a, b) => {
+    const statusOrder = ["Upcoming", "Ongoing", "Closed"];
+    const sortOrder = sortStatus === "asc" ? 1 : -1;
+    return (statusOrder.indexOf(a.status) - statusOrder.indexOf(b.status)) * sortOrder;
+  }) : [];
 
   return (
     <Container style={{ marginTop: "2rem", marginLeft: "8rem" }}>
-      <Typography variant="h4" color='black' gutterBottom>
+      <Typography variant="h4" color="black" gutterBottom>
         Exhibitions
       </Typography>
       <div style={{ display: 'flex', gap: '10px', marginBottom: '15px' }}>
@@ -184,8 +234,8 @@ const ListExhibition = () => {
                       variant="contained"
                       color="secondary"
                       onClick={(e) => {
-                        e.stopPropagation()
-                        handleDeleteExhibition(exhibition.exhibitionId)
+                        e.stopPropagation();
+                        handleDeleteExhibition(exhibition.exhibitionId);
                       }}
                       style={{ marginTop: "1rem" }}
                     >
@@ -195,8 +245,8 @@ const ListExhibition = () => {
                       variant="contained"
                       color="primary"
                       onClick={(e) => {
-                        e.stopPropagation()
-                        handleEditExhibition(exhibition)
+                        e.stopPropagation();
+                        handleEditExhibition(exhibition);
                       }}
                       style={{ marginTop: "1rem", marginLeft: "10px" }}
                     >
@@ -221,7 +271,7 @@ const ListExhibition = () => {
       )}
       {showSubmissions && selectedExhibition && (
         <div style={{ marginTop: "2rem" }}>
-          <Typography variant="h5" color='black' gutterBottom>
+          <Typography variant="h5" color="black" gutterBottom>
             Submissions in Exhibition
           </Typography>
           {selectedExhibitionSubmissions.length > 0 ? (
@@ -283,7 +333,9 @@ const ListExhibition = () => {
             fullWidth
             value={exhibitionName}
             onChange={(e) => setExhibitionName(e.target.value)}
-            style={{ marginBottom: "1rem" }}
+            style={{ marginBottom: "1rem", marginTop: "1rem" }}
+            error={Boolean(nameError)}
+            helperText={nameError}
           />
           <TextField
             label="Exhibition Date"
@@ -291,10 +343,10 @@ const ListExhibition = () => {
             fullWidth
             value={exhibitionDate}
             onChange={(e) => setExhibitionDate(e.target.value)}
-            InputLabelProps={{
-              shrink: true,
-            }}
+            InputLabelProps={{ shrink: true }}
             style={{ marginBottom: "1rem" }}
+            error={Boolean(dateError)}
+            helperText={dateError}
           />
           <TextField
             label="Description"
@@ -344,7 +396,7 @@ const ListExhibition = () => {
         </DialogActions>
       </Dialog>
     </Container>
-  )
-}
+  );
+};
 
-export default ListExhibition
+export default ListExhibition;

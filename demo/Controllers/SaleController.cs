@@ -58,6 +58,11 @@ namespace demo.Controllers
         [Authorize(Roles = "MANAGER,STAFF,ADMIN")]
         public async Task<IActionResult> UpdateSale(int id, [FromBody] SaleDto saleDto)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
             var result = await _saleRepo.UpdateSale(id, saleDto);
             if (result.Status == 404)
             {

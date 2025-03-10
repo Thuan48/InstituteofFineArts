@@ -101,6 +101,17 @@ namespace demo.Controllers
             {
                 return NotFound(result.Message);
             }
+            return Ok(result.Data);
+        }
+
+        [HttpPost("reset-password")]
+        public async Task<ActionResult> ResetPassword([FromBody] ResetPasswordDto resetPasswordDto)
+        {
+            var result = await _userRepo.ResetPassword(resetPasswordDto);
+            if (result.Status == 404)
+            {
+                return NotFound(result.Message);
+            }
             else if (result.Status == 400)
             {
                 return BadRequest(result.Message);
@@ -108,24 +119,17 @@ namespace demo.Controllers
             return Ok(result.Data);
         }
 
-        [HttpPost("{id}/reset-password")]
-        public async Task<ActionResult> ResetPassword(int id)
+        [HttpPost("forgot-password")]
+        public async Task<ActionResult> ForgotPassword([FromBody] ForgotPasswordDto forgotPasswordDto)
         {
-            var result = await _userRepo.ResetPassword(id);
+            var result = await _userRepo.ForgotPassword(forgotPasswordDto);
             if (result.Status == 404)
             {
                 return NotFound(result.Message);
             }
-            return Ok(result.Data);
-        }
-
-        [HttpPost("forgot-password")]
-        public async Task<ActionResult> ForgotPassword([FromBody] string email)
-        {
-            var result = await _userRepo.ForgotPassword(email);
-            if (result.Status == 404)
+            else if (result.Status == 400)
             {
-                return NotFound(result.Message);
+                return BadRequest(result.Message);
             }
             return Ok(result.Data);
         }

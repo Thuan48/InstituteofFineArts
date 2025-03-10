@@ -1,0 +1,319 @@
+.flex {
+  display: flex;
+}
+
+.min-h-screen {
+  min-height: 100vh;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.bg-gray-50 {
+  background-color: #f9fafb;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.max-w-md {
+  max-width: 28rem;
+}
+
+.mb-8 {
+  margin-bottom: 2rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.text-gray-900 {
+  color: #1f2937;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.text-gray-600 {
+  color: #4b5563;
+}
+
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+
+.bg-white {
+  background-color: #ffffff;
+}
+
+.p-8 {
+  padding: 2rem;
+}
+
+.shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.space-y-6> :not([hidden])~ :not([hidden]) {
+  --tw-space-y-reverse: 0;
+  margin-top: calc(1.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(1.5rem * var(--tw-space-y-reverse));
+}
+
+.block {
+  display: block;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.text-gray-700 {
+  color: #374151;
+}
+
+.mb-1 {
+  margin-bottom: 0.25rem;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.rounded-md {
+  border-radius: 0.375rem;
+}
+
+.border {
+  border-width: 1px;
+}
+
+.border-gray-300 {
+  border-color: #d1d5db;
+}
+
+.px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.shadow-sm {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.focus\:border-blue-500:focus {
+  border-color: #3b82f6;
+}
+
+.focus\:outline-none:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.focus\:ring-1:focus {
+  box-shadow: 0 0 0 1px #3b82f6;
+}
+
+.focus\:ring-blue-500:focus {
+  box-shadow: 0 0 0 1px #3b82f6;
+}
+
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.h-4 {
+  height: 1rem;
+}
+
+.w-4 {
+  width: 1rem;
+}
+
+.rounded {
+  border-radius: 0.25rem;
+}
+
+.text-blue-600 {
+  color: #2563eb;
+}
+
+.focus\:ring-blue-500:focus {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+}
+
+.ml-2 {
+  margin-left: 0.5rem;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+}
+
+.text-gray-900 {
+  color: #1f2937;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.text-blue-600 {
+  color: #2563eb;
+}
+
+.hover\:text-blue-500:hover {
+  color: #3b82f6;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.rounded-md {
+  border-radius: 0.375rem;
+}
+
+.bg-blue-600 {
+  background-color: #2563eb;
+}
+
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.text-white {
+  color: #ffffff;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.hover\:bg-blue-700:hover {
+  background-color: #1d4ed8;
+}
+
+.focus\:outline-none:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.focus\:ring-2:focus {
+  box-shadow: 0 0 0 2px #3b82f6;
+}
+
+.focus\:ring-blue-500:focus {
+  box-shadow: 0 0 0 2px #3b82f6;
+}
+
+.focus\:ring-offset-2:focus {
+  box-shadow: 0 0 0 2px #3b82f6, 0 0 0 2px rgba(255, 255, 255, 0.5);
+}
+
+.transition-colors {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+}
+
+.duration-200 {
+  transition-duration: 200ms;
+}
+
+body {
+  @apply font-sans bg-gradient-to-r from-blue-100 to-blue-300;
+}
+
+.login-container {
+  @apply flex min-h-screen items-center justify-center p-4;
+}
+
+.login-box {
+  @apply w-full max-w-md bg-white p-8 rounded-lg shadow-2xl;
+}
+
+.login-header {
+  @apply mb-8 text-center;
+}
+
+.login-title {
+  @apply text-4xl font-extrabold text-gray-900;
+}
+
+.login-subtitle {
+  @apply mt-2 text-lg text-gray-600;
+}
+
+.login-form {
+  @apply space-y-6;
+}
+
+.login-label {
+  @apply block text-sm font-medium text-gray-700 mb-1;
+}
+
+.login-input {
+  @apply w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 transition duration-200 ease-in-out;
+}
+
+.login-remember {
+  @apply flex items-center;
+}
+
+.login-checkbox {
+  @apply h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500;
+}
+
+.login-remember-label {
+  @apply ml-2 block text-sm text-gray-900;
+}
+
+.login-forgot {
+  @apply text-sm font-medium text-blue-600 hover:text-blue-500 transition duration-200 ease-in-out;
+}
+
+.login-button {
+  @apply w-full rounded-md bg-gradient-to-r from-blue-500 to-blue-700 py-2 px-4 text-white font-medium hover:from-blue-600 hover:to-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-200 ease-in-out;
+}

@@ -1,5 +1,6 @@
 import { Home, Users } from "lucide-react"
 import { Link, useLocation } from "react-router-dom"
+import { IoMdCart } from "react-icons/io";
 import '../../styles/admin.css'
 
 const Sidebar = () => {
@@ -27,6 +28,14 @@ const Sidebar = () => {
         >
           <Users size={20} />
           <span>Users</span>
+        </Link>
+        <Link
+          to="/admin/sales"
+          className={`flex items-center space-x-3 px-4 py-2.5 rounded-lg transition-colors ${isActive("/admin/sales") ? "bg-primary text-white" : "text-gray-300 hover:bg-gray-800"
+            }`}
+        >
+          <IoMdCart size={20} />
+          <span>Sales</span>
         </Link>
       </nav>
     </aside>

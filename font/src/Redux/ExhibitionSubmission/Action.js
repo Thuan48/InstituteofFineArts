@@ -9,24 +9,28 @@ import {
 } from "./ActionType";
 import { getToken } from "../../utils/tokenManager";
 
+// Lấy danh sách exhibition submissions theo phân trang
 export const getAllExhibitionSubmissions = (pageNumber = 1, pageSize = 10) => async (dispatch) => {
   try {
-    const token = getToken();
     const res = await fetch(`${BASE_API_URL}/api/ExhibitionSubmission?pageNumber=${pageNumber}&pageSize=${pageSize}`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${token}`
       }
     });
 
     const resData = await res.json();
-    dispatch({ type: GET_ALL_EXHIBITION_SUBMISSIONS, payload: resData });
+    // Nếu API trả về cấu trúc chứa totalRecords thì cập nhật payload theo đó
+    dispatch({ 
+      type: GET_ALL_EXHIBITION_SUBMISSIONS, 
+      payload: { exhibitionSubmissions: resData, totalRecords: resData.length } 
+    });
   } catch (error) {
     console.log("catch error:", error);
   }
 };
 
+// Lấy chi tiết 1 submission theo id
 export const getExhibitionSubmissionById = (id) => async (dispatch) => {
   try {
     const token = getToken();
@@ -44,6 +48,7 @@ export const getExhibitionSubmissionById = (id) => async (dispatch) => {
   }
 };
 
+// Thêm một submission mới
 export const addExhibitionSubmission = (exhibitionSubmissionData) => async (dispatch) => {
   try {
     const token = getToken();
@@ -68,7 +73,8 @@ export const addExhibitionSubmission = (exhibitionSubmissionData) => async (disp
   }
 };
 
-export const updateExhibitionSubmission = (id, exhibitionSubmissionData) => async (dispatch) => {
+// Cập nhật thông tin của 1 submission (chỉ cập nhật Price và Status)
+export const updateExhibitionSubmission = (id, submissionData) => async (dispatch) => {
   try {
     const token = getToken();
     const res = await fetch(`${BASE_API_URL}/api/ExhibitionSubmission/${id}`, {
@@ -77,16 +83,25 @@ export const updateExhibitionSubmission = (id, exhibitionSubmissionData) => asyn
         "Content-Type": "application/json",
         "Authorization": `Bearer ${token}`
       },
-      body: JSON.stringify(exhibitionSubmissionData)
+      body: JSON.stringify(submissionData)
     });
 
+    // Nếu không thành công, đọc lỗi dạng text rồi ném ra
+    if (!res.ok) {
+      const errorText = await res.text();
+      throw new Error(errorText || "Failed to update submission");
+    }
+
     const data = await res.json();
-    dispatch({ type: UPDATE_EXHIBITION_SUBMISSION, payload: data });
+    // data.data chứa thông tin submission đã được cập nhật (theo API của bạn)
+    dispatch({ type: UPDATE_EXHIBITION_SUBMISSION, payload: data.data });
   } catch (error) {
     console.log("catch error:", error);
+    throw error;
   }
 };
 
+// Xóa 1 submission
 export const deleteExhibitionSubmission = (id) => async (dispatch) => {
   try {
     const token = getToken();
@@ -104,16 +119,20 @@ export const deleteExhibitionSubmission = (id) => async (dispatch) => {
   }
 };
 
+// Tìm kiếm submissions theo từ khóa (với phân trang)
 export const searchExhibitionSubmissions = (searchTerm, pageNumber = 1, pageSize = 10) => async (dispatch) => {
   try {
     const token = getToken();
-    const res = await fetch(`${BASE_API_URL}/api/ExhibitionSubmission/search?searchTerm=${searchTerm}&pageNumber=${pageNumber}&pageSize=${pageSize}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        "Authorization": `Bearer ${token}`
+    const res = await fetch(
+      `${BASE_API_URL}/api/ExhibitionSubmission/search?searchTerm=${searchTerm}&pageNumber=${pageNumber}&pageSize=${pageSize}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${token}`
+        }
       }
-    });
+    );
 
     const resData = await res.json();
     dispatch({ type: SEARCH_EXHIBITION_SUBMISSIONS, payload: resData });

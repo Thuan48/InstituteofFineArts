@@ -7,6 +7,7 @@ import {
   DELETE_AWARD,
   SEARCH_AWARDS
 } from "./ActionType";
+import { getToken } from "../../utils/tokenManager";
 
 export const getAllAwards = () => async (dispatch) => {
   try {
@@ -36,9 +37,13 @@ export const getAwardById = (id) => async (dispatch) => {
 
 export const addAward = (award) => async (dispatch) => {
   try {
+    const token = getToken();
     const res = await fetch(`${BASE_API_URL}/api/Award`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+      },
       body: JSON.stringify(award)
     });
     if (!res.ok) {
@@ -54,9 +59,13 @@ export const addAward = (award) => async (dispatch) => {
 
 export const updateAward = (id, award) => async (dispatch) => {
   try {
+    const token = getToken();
     const res = await fetch(`${BASE_API_URL}/api/Award/${id}`, {
       method: "PUT",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+      },
       body: JSON.stringify(award)
     });
     const data = await res.json();
@@ -68,12 +77,16 @@ export const updateAward = (id, award) => async (dispatch) => {
 
 export const deleteAward = (id) => async (dispatch) => {
   try {
+    const token = getToken();
     const res = await fetch(`${BASE_API_URL}/api/Award/${id}`, {
       method: "DELETE",
-      headers: { "Content-Type": "application/json" }
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+      }
     });
     const data = await res.json();
-    dispatch({ type: DELETE_AWARD, payload: data });
+    dispatch({ type: DELETE_AWARD, payload: { id } });
   } catch (error) {
     console.log("catch error:", error);
   }

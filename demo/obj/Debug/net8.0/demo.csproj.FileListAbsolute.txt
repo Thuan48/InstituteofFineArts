@@ -193,3 +193,4 @@ C:\IT\proj3\demo\bin\Debug\net8.0\System.IO.Packaging.dll
 C:\IT\proj3\demo\bin\Debug\net8.0\Faker.dll
 C:\IT\proj3\demo\bin\Debug\net8.0\Faker.Net.6.0.dll
 C:\IT\proj3\demo\bin\Debug\net8.0\de-DE\Faker.Net.6.0.resources.dll
+C:\IT\proj3\demo\obj\Debug\net8.0\demo.sourcelink.json

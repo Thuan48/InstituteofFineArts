@@ -1,0 +1,453 @@
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 243 75% 59%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 243 75% 59%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 243 75% 59%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 243 75% 59%;
+  }
+}
+
+/* Custom animation for background grid */
+.bg-grid-white {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+}
+
+/* Custom shadow for hover effect */
+.shadow-3xl {
+  box-shadow: 0 25px 50px -12px rgba(79, 70, 229, 0.25);
+}
+
+.profile-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: var(--background);
+}
+
+.profile-card {
+  background: var(--card);
+  color: var(--foreground);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-3xl);
+  padding: 2rem;
+  max-width: 600px;
+  width: 100%;
+}
+
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.header-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.header-role {
+  font-size: 1rem;
+  color: var(--muted-foreground);
+}
+
+.profile-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.profile-image-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.image-container {
+  position: relative;
+}
+
+.image-wrapper,
+.default-image {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--muted);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.edit-icon {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  border-radius: 50%;
+  padding: 0.25rem;
+  cursor: pointer;
+}
+
+.profile-name {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.profile-email {
+  font-size: 1rem;
+  color: var(--muted-foreground);
+}
+
+.change-password-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.change-password-button:hover {
+  background: var(--primary-hover);
+}
+
+.profile-details-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.details-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.details-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.item-icon {
+  background: var(--muted);
+  color: var(--muted-foreground);
+  border-radius: 50%;
+  padding: 0.5rem;
+}
+
+.item-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.item-label {
+  font-size: 0.875rem;
+  color: var(--muted-foreground);
+}
+
+.item-value {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: var(--card);
+  color: var(--foreground);
+  border-radius: var(--radius);
+  padding: 2rem;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: var(--shadow-3xl);
+}
+
+/* Enhanced form styles */
+.form-header {
+  background: white;
+  color: var(--primary-foreground);
+  padding: 1rem;
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.form-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--primary-foreground);
+}
+
+.form-body {
+  padding: 1rem;
+  background: white;
+  /* Changed background color */
+  border-radius: 0 0 var(--radius) var(--radius);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-label {
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--foreground);
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--input);
+  border-radius: var(--radius);
+  padding: 0.5rem;
+  border: 1px solid var(--border);
+}
+
+.form-input {
+  flex: 1;
+  border: none;
+  background: none;
+  outline: none;
+  color: var(--foreground);
+}
+
+.toggle-password {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--foreground);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem;
+  background: var(--card);
+  border-radius: 0 0 var(--radius) var(--radius);
+}
+
+.submit-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.submit-button.submitting {
+  background: var(--muted);
+  cursor: not-allowed;
+}
+
+.submit-button:hover:not(.submitting) {
+  background: var(--primary-hover);
+}
+
+.submit-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+.form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.form-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--foreground);
+}
+
+.form-error,
+.form-success {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: var(--radius);
+  margin-bottom: 1rem;
+}
+
+.form-error {
+  background: red;
+  color: var(--destructive-foreground);
+}
+
+.form-success {
+  background: var(--primary);
+  color: var(--primary-foreground);
+}
+
+.form-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--input);
+  border-radius: var(--radius);
+  padding: 0.5rem;
+}
+
+.form-input {
+  flex: 1;
+  border: none;
+  background: none;
+  outline: none;
+  color: var(--foreground);
+}
+
+.toggle-password {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--foreground);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.submit-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--primary);
+  color: var(--primary-foreground);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.submit-button.submitting {
+  background: var(--muted);
+  cursor: not-allowed;
+}
+
+.submit-button:hover:not(.submitting) {
+  background: var(--primary-hover);
+}
+
+.submit-icon {
+  width: 1rem;
+  height: 1rem;
+}

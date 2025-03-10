@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchCurrentUser } from "../../Redux/User/Action";
 import { getAllSubmissions, searchSubmissions } from "../../Redux/Submissions/Action";
 import { getAllCompetitions, searchCompetitions } from "../../Redux/Competition/Action";
-import { getAllAwards } from "../../Redux/Award/ACtion";
+import { getAllAwards } from "../../Redux/Award/Action";
 import { getToken } from "../../utils/tokenManager";
 import { useNavigate } from "react-router-dom";
 import { Container, Typography, Card, CardContent, Divider, Grid, Button, Alert, TextField } from "@mui/material";
@@ -162,7 +162,7 @@ const StudentDashboard = () => {
                   const highestAward = sortedAwards.length > 0 ? sortedAwards[0] : undefined;
 
                   return (
-                    <Grid item xs={12} sm={6} md={4} key={comp.competitionId}>
+                    <Grid item xs={12} md={8} key={comp.competitionId}>
                       <Card
                         onClick={() => navigate(`/competition/${comp.competitionId}`)}
                         style={{ marginBottom: "1rem", cursor: "pointer" }}
@@ -266,7 +266,7 @@ const StudentDashboard = () => {
                 const awardForSubmission = sortedSubAwards.length > 0 ? sortedSubAwards[0] : undefined;
 
                 return (
-                  <Grid item xs={12} sm={6} md={4} key={sub.submissionId}>
+                  <Grid item xs={12} sm={6} md={3} key={sub.submissionId}>
                     <Card style={{ marginBottom: "1rem" }}>
                       <CardContent>
                         <img

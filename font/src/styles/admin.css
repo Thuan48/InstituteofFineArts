@@ -1,6 +1,6 @@
 .admin-sidebar {
   background-color: #1a202c;
-  color: #fff;
+  color: #e2e8f0;
   padding: 1.5rem;
   width: 16rem;
   position: fixed;
@@ -34,6 +34,7 @@
 
 .admin-main.sidebar-open {
   margin-left: 9rem;
+  width: 100%;
 }
 
 .admin-main.sidebar-closed {
@@ -44,6 +45,7 @@
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 2rem;
+  color: #cbd5e0;
 }
 
 .admin-sidebar nav a {
@@ -52,11 +54,12 @@
   padding: 0.75rem 1rem;
   border-radius: 0.5rem;
   transition: background-color 0.25s, color 0.25s;
+  color: #cbd5e0;
 }
 
 .admin-sidebar nav a:hover {
   background-color: #2d3748;
-  color: #cbd5e0;
+  color: #e2e8f0;
 }
 
 .admin-sidebar nav a.active {
@@ -76,11 +79,13 @@
   justify-content: space-between;
   align-items: center;
   z-index: 10;
+  color: #2d3748;
 }
 
 .admin-header .search-input {
   padding-left: 2.25rem;
   width: 15.625rem;
+  color: #2d3748;
 }
 
 .admin-header .search-icon {
@@ -113,6 +118,7 @@
   background-color: #f7fafc;
   min-height: calc(85vh - 2rem);
   overflow-x: hidden;
+  color: #2d3748;
 }
 
 .admin-main h2 {
@@ -127,4 +133,49 @@
   border: 1px solid #e2e8f0;
   border-radius: 0.5rem;
   padding: 1rem;
+  color: #2d3748;
+}
+
+:root.dark .admin-sidebar {
+  background-color: #1a202c;
+  color: #cbd5e0;
+}
+
+:root.dark .admin-sidebar nav a:hover {
+  background-color: #2d3748;
+  color: #e2e8f0;
+}
+
+:root.dark .admin-sidebar nav a.active {
+  background-color: #3182ce;
+  color: #fff;
+}
+
+:root.dark .admin-header {
+  background-color: #444;
+  border-bottom: 1px solid #555;
+  color: #e2e8f0;
+}
+
+:root.dark .admin-header .search-input {
+  color: #e2e8f0;
+}
+
+:root.dark .admin-header .search-icon {
+  color: #bbb;
+}
+
+:root.dark .admin-main {
+  background-color: #333;
+  color: #e2e8f0;
+}
+
+:root.dark .admin-main h2 {
+  color: #e2e8f0;
+}
+
+:root.dark .admin-main .data-grid {
+  background-color: #444;
+  border: 1px solid #555;
+  color: #e2e8f0;
 }

@@ -9,6 +9,7 @@ import {
 } from "./ActionType";
 import { getToken } from "../../utils/tokenManager";
 
+// Lấy danh sách exhibitions theo phân trang
 export const getAllExhibitions = (pageNumber = 1, pageSize = 10) => async (dispatch) => {
   try {
     const res = await fetch(`${BASE_API_URL}/api/Exhibition?pageNumber=${pageNumber}&pageSize=${pageSize}`, {
@@ -25,6 +26,7 @@ export const getAllExhibitions = (pageNumber = 1, pageSize = 10) => async (dispa
   }
 };
 
+// Lấy chi tiết 1 exhibition theo id
 export const getExhibitionById = (id) => async (dispatch) => {
   try {
     const res = await fetch(`${BASE_API_URL}/api/Exhibition/${id}`, {
@@ -38,6 +40,7 @@ export const getExhibitionById = (id) => async (dispatch) => {
   }
 };
 
+// Thêm một exhibition mới
 export const addExhibition = (exhibitionData) => async (dispatch) => {
   try {
     const token = getToken();
@@ -62,6 +65,7 @@ export const addExhibition = (exhibitionData) => async (dispatch) => {
   }
 };
 
+// Cập nhật thông tin của 1 exhibition
 export const updateExhibition = (id, exhibitionData) => async (dispatch) => {
   try {
     const token = getToken();
@@ -81,6 +85,7 @@ export const updateExhibition = (id, exhibitionData) => async (dispatch) => {
   }
 };
 
+// Xóa 1 exhibition
 export const deleteExhibition = (id) => async (dispatch) => {
   try {
     const token = getToken();
@@ -98,6 +103,7 @@ export const deleteExhibition = (id) => async (dispatch) => {
   }
 };
 
+// Tìm kiếm exhibitions theo từ khóa (với phân trang)
 export const searchExhibitions = (searchTerm, pageNumber = 1, pageSize = 10) => async (dispatch) => {
   try {
     const res = await fetch(`${BASE_API_URL}/api/Exhibition/search?searchTerm=${searchTerm}&pageNumber=${pageNumber}&pageSize=${pageSize}`, {

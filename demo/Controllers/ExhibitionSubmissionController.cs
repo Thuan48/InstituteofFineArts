@@ -111,9 +111,9 @@ namespace demo.Controllers
     }
 
     [HttpGet]
-    public async Task<IActionResult> GetAllExhibitionSubmissions()
+    public async Task<IActionResult> GetAllExhibitionSubmissions([FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
     {
-      var result = await _exhibitionSubmissionRepo.GetAllExhibitionSubmissions(1, 10);
+      var result = await _exhibitionSubmissionRepo.GetAllExhibitionSubmissions(pageNumber, pageSize);
       if (result.Status == 404)
       {
         return NotFound(result.Message);

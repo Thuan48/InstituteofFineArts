@@ -1,5 +1,5 @@
 import { BASE_API_URL } from "../../config/api";
-import { FETCH_USERS, FETCH_USER_BY_ID, FETCH_CURRENT_USER, ADD_USER, UPDATE_USER, DELETE_USER } from "./ActionType";
+import { FETCH_USERS, FETCH_USER_BY_ID, FETCH_CURRENT_USER, ADD_USER, UPDATE_USER, DELETE_USER, CHANGE_PASSWORD, FORGOT_PASSWORD, RESET_PASSWORD, IMPORT_EXCEL } from "./ActionType";
 import { getToken } from "../../utils/tokenManager";
 
 export const fetchUsers = () => async (dispatch) => {
@@ -34,12 +34,14 @@ export const fetchUserById = (id) => async (dispatch) => {
     const resData = await res.json();
     if (res.ok) {
       dispatch({ type: FETCH_USER_BY_ID, payload: resData });
-      console.log("fetch user by id success", resData);
+      return resData;
     } else {
       console.log("fetch data fail", resData);
+      return null;
     }
   } catch (error) {
     console.log("catch error:", error);
+    return null;
   }
 };
 
@@ -221,11 +223,83 @@ export const importExcel = (file) => async (dispatch) => {
     const resData = await res.json();
     if (res.ok) {
       alert(`Import successful: ${resData.Success} users added.`);
-      dispatch(fetchUsers());
+      dispatch({ type: IMPORT_EXCEL, payload: resData.Users });
     } else {
       alert("Import failed: " + resData.Errors.join(", "));
     }
   } catch (error) {
     console.log("Import action error:", error);
+  }
+};
+
+export const changePassword = (id, newPassword) => async (dispatch) => {
+  try {
+    const token = getToken();
+    const res = await fetch(`${BASE_API_URL}/api/user/${id}/change-password`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+      },
+      body: JSON.stringify({ newPassword })
+    });
+
+    const resData = await res.json();
+    if (res.ok) {
+      dispatch({ type: CHANGE_PASSWORD, payload: resData });
+    } else {
+      console.log("Change password failed", resData);
+    }
+  } catch (error) {
+    console.log("Change password error:", error);
+  }
+};
+
+export const forgotPassword = (email) => async (dispatch) => {
+  try {
+    const res = await fetch(`${BASE_API_URL}/api/user/forgot-password`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ email })
+    });
+
+    const resData = await res.json();
+    if (res.ok) {
+      dispatch({ type: FORGOT_PASSWORD, payload: resData });
+    } else {
+      console.log("Forgot password failed", resData);
+    }
+  } catch (error) {
+    console.log("Forgot password error:", error);
+  }
+};
+
+export const resetPassword = (id, code, newPassword) => async (dispatch) => {
+  try {
+    const res = await fetch(`${BASE_API_URL}/api/user/reset-password`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ userId: id, code, newPassword })
+    });
+
+    const text = await res.text();
+    let resData;
+    try {
+      resData = text ? JSON.parse(text) : {};
+    } catch (e) {
+      resData = { message: text };
+    }
+
+    if (res.ok) {
+      dispatch({ type: RESET_PASSWORD, payload: resData });
+    } else {
+      console.log("Reset password failed", resData);
+    }
+  } catch (error) {
+    console.log("Reset password error:", error);
   }
 };

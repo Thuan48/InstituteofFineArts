@@ -3,24 +3,44 @@
   "WorkspaceRootPath": "C:\\IT\\proj3\\demo\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8325DC80-E463-46B0-85B2-B8C828E03C5E}|demo.csproj|c:\\it\\proj3\\demo\\controllers\\exhibitionsubmissioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8325DC80-E463-46B0-85B2-B8C828E03C5E}|demo.csproj|solutionrelative:controllers\\exhibitionsubmissioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8325DC80-E463-46B0-85B2-B8C828E03C5E}|demo.csproj|c:\\it\\proj3\\demo\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{8325DC80-E463-46B0-85B2-B8C828E03C5E}|demo.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8325DC80-E463-46B0-85B2-B8C828E03C5E}|demo.csproj|c:\\it\\proj3\\demo\\repository\\exhibitionsubmissionrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8325DC80-E463-46B0-85B2-B8C828E03C5E}|demo.csproj|solutionrelative:repository\\exhibitionsubmissionrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8325DC80-E463-46B0-85B2-B8C828E03C5E}|demo.csproj|c:\\it\\proj3\\demo\\settings\\mailsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8325DC80-E463-46B0-85B2-B8C828E03C5E}|demo.csproj|solutionrelative:settings\\mailsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8325DC80-E463-46B0-85B2-B8C828E03C5E}|demo.csproj|c:\\it\\proj3\\demo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8325DC80-E463-46B0-85B2-B8C828E03C5E}|demo.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8325DC80-E463-46B0-85B2-B8C828E03C5E}|demo.csproj|c:\\it\\proj3\\demo\\weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8325DC80-E463-46B0-85B2-B8C828E03C5E}|demo.csproj|solutionrelative:weatherforecast.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8325DC80-E463-46B0-85B2-B8C828E03C5E}|demo.csproj|c:\\it\\proj3\\demo\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{8325DC80-E463-46B0-85B2-B8C828E03C5E}|demo.csproj|solutionrelative:properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8325DC80-E463-46B0-85B2-B8C828E03C5E}|demo.csproj|c:\\it\\proj3\\demo\\repository\\userrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8325DC80-E463-46B0-85B2-B8C828E03C5E}|demo.csproj|solutionrelative:repository\\userrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8325DC80-E463-46B0-85B2-B8C828E03C5E}|demo.csproj|c:\\it\\proj3\\demo\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8325DC80-E463-46B0-85B2-B8C828E03C5E}|demo.csproj|solutionrelative:controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8325DC80-E463-46B0-85B2-B8C828E03C5E}|demo.csproj|c:\\it\\proj3\\demo\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{8325DC80-E463-46B0-85B2-B8C828E03C5E}|demo.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{8325DC80-E463-46B0-85B2-B8C828E03C5E}|demo.csproj|c:\\it\\proj3\\demo\\controllers\\awardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8325DC80-E463-46B0-85B2-B8C828E03C5E}|demo.csproj|solutionrelative:controllers\\awardcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8325DC80-E463-46B0-85B2-B8C828E03C5E}|demo.csproj|c:\\it\\proj3\\demo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8325DC80-E463-46B0-85B2-B8C828E03C5E}|demo.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{8325DC80-E463-46B0-85B2-B8C828E03C5E}|demo.csproj|c:\\it\\proj3\\demo\\controllers\\exhibitionsubmissioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8325DC80-E463-46B0-85B2-B8C828E03C5E}|demo.csproj|solutionrelative:controllers\\exhibitionsubmissioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8325DC80-E463-46B0-85B2-B8C828E03C5E}|demo.csproj|c:\\it\\proj3\\demo\\repository\\exhibitionsubmissionrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8325DC80-E463-46B0-85B2-B8C828E03C5E}|demo.csproj|solutionrelative:repository\\exhibitionsubmissionrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{8325DC80-E463-46B0-85B2-B8C828E03C5E}|demo.csproj|c:\\it\\proj3\\demo\\repository\\authrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -42,7 +62,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 13,
           "Children": [
             {
               "$type": "Bookmark",
@@ -70,33 +90,43 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "WeatherForecast.cs",
+              "DocumentMoniker": "C:\\IT\\proj3\\demo\\WeatherForecast.cs",
+              "RelativeDocumentMoniker": "WeatherForecast.cs",
+              "ToolTip": "C:\\IT\\proj3\\demo\\WeatherForecast.cs",
+              "RelativeToolTip": "WeatherForecast.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-05T09:06:16.138Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ExhibitionSubmissionRepo.cs",
-              "DocumentMoniker": "C:\\IT\\proj3\\demo\\Repository\\ExhibitionSubmissionRepo.cs",
-              "RelativeDocumentMoniker": "Repository\\ExhibitionSubmissionRepo.cs",
-              "ToolTip": "C:\\IT\\proj3\\demo\\Repository\\ExhibitionSubmissionRepo.cs",
-              "RelativeToolTip": "Repository\\ExhibitionSubmissionRepo.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABFAAAAAAAAAA==",
+              "Title": "MailSettings.cs",
+              "DocumentMoniker": "C:\\IT\\proj3\\demo\\Settings\\MailSettings.cs",
+              "RelativeDocumentMoniker": "Settings\\MailSettings.cs",
+              "ToolTip": "C:\\IT\\proj3\\demo\\Settings\\MailSettings.cs",
+              "RelativeToolTip": "Settings\\MailSettings.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-22T03:46:55.392Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-05T09:06:03.501Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ExhibitionSubmissionController.cs",
-              "DocumentMoniker": "C:\\IT\\proj3\\demo\\Controllers\\ExhibitionSubmissionController.cs",
-              "RelativeDocumentMoniker": "Controllers\\ExhibitionSubmissionController.cs",
-              "ToolTip": "C:\\IT\\proj3\\demo\\Controllers\\ExhibitionSubmissionController.cs",
-              "RelativeToolTip": "Controllers\\ExhibitionSubmissionController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAHAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "UserRepo.cs",
+              "DocumentMoniker": "C:\\IT\\proj3\\demo\\Repository\\UserRepo.cs",
+              "RelativeDocumentMoniker": "Repository\\UserRepo.cs",
+              "ToolTip": "C:\\IT\\proj3\\demo\\Repository\\UserRepo.cs",
+              "RelativeToolTip": "Repository\\UserRepo.cs",
+              "ViewState": "AgIAALQAAAAAAAAAAAAAAMMAAABKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-22T03:45:32.766Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-03-03T08:22:47.908Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "UserController.cs",
               "DocumentMoniker": "C:\\IT\\proj3\\demo\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "Controllers\\UserController.cs",
@@ -104,38 +134,84 @@
               "RelativeToolTip": "Controllers\\UserController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-15T08:29:21.129Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-15T08:29:21.129Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\IT\\proj3\\demo\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\IT\\proj3\\demo\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEUAAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-12T10:07:50.9Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AwardController.cs",
+              "DocumentMoniker": "C:\\IT\\proj3\\demo\\Controllers\\AwardController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AwardController.cs",
+              "ToolTip": "C:\\IT\\proj3\\demo\\Controllers\\AwardController.cs",
+              "RelativeToolTip": "Controllers\\AwardController.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAqwEIAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-27T15:03:17.139Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "launchSettings.json",
+              "DocumentMoniker": "C:\\IT\\proj3\\demo\\Properties\\launchSettings.json",
+              "RelativeDocumentMoniker": "Properties\\launchSettings.json",
+              "ToolTip": "C:\\IT\\proj3\\demo\\Properties\\launchSettings.json",
+              "RelativeToolTip": "Properties\\launchSettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-03-02T10:41:35.782Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
               "Title": "appsettings.json",
               "DocumentMoniker": "C:\\IT\\proj3\\demo\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
               "ToolTip": "C:\\IT\\proj3\\demo\\appsettings.json",
               "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-02-15T03:53:16.529Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\IT\\proj3\\demo\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\IT\\proj3\\demo\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAEsAAAAAAAAAAABRwB0AAAAHAAAAAAAAAA==",
+              "DocumentIndex": 8,
+              "Title": "ExhibitionSubmissionController.cs",
+              "DocumentMoniker": "C:\\IT\\proj3\\demo\\Controllers\\ExhibitionSubmissionController.cs",
+              "RelativeDocumentMoniker": "Controllers\\ExhibitionSubmissionController.cs",
+              "ToolTip": "C:\\IT\\proj3\\demo\\Controllers\\ExhibitionSubmissionController.cs",
+              "RelativeToolTip": "Controllers\\ExhibitionSubmissionController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-12T10:07:50.9Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-22T03:45:32.766Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
+              "Title": "ExhibitionSubmissionRepo.cs",
+              "DocumentMoniker": "C:\\IT\\proj3\\demo\\Repository\\ExhibitionSubmissionRepo.cs",
+              "RelativeDocumentMoniker": "Repository\\ExhibitionSubmissionRepo.cs",
+              "ToolTip": "C:\\IT\\proj3\\demo\\Repository\\ExhibitionSubmissionRepo.cs",
+              "RelativeToolTip": "Repository\\ExhibitionSubmissionRepo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-22T03:46:55.392Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
               "Title": "AuthRepo.cs",
               "DocumentMoniker": "C:\\IT\\proj3\\demo\\Repository\\AuthRepo.cs",
               "RelativeDocumentMoniker": "Repository\\AuthRepo.cs",
@@ -143,12 +219,11 @@
               "RelativeToolTip": "Repository\\AuthRepo.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAABmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-10T10:04:05.364Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-10T10:04:05.364Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 11,
               "Title": "IAuthRepo.cs",
               "DocumentMoniker": "C:\\IT\\proj3\\demo\\Interfaces\\IAuthRepo.cs",
               "RelativeDocumentMoniker": "Interfaces\\IAuthRepo.cs",
@@ -156,12 +231,11 @@
               "RelativeToolTip": "Interfaces\\IAuthRepo.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-10T09:49:03.312Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-10T09:49:03.312Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 12,
               "Title": "Users.cs",
               "DocumentMoniker": "C:\\IT\\proj3\\demo\\Model\\Users.cs",
               "RelativeDocumentMoniker": "Model\\Users.cs",
@@ -169,8 +243,7 @@
               "RelativeToolTip": "Model\\Users.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-10T09:38:29.983Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-02-10T09:38:29.983Z"
             }
           ]
         }

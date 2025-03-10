@@ -21,7 +21,8 @@ namespace demo.Model
         public DateTime SoldDate { get; set; }
 
         [Required]
-        public string? PaymentStatus { get; set; } 
+        public string? PaymentStatus { get; set; }
+        public string TransactionRef { get; set; }
 
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }

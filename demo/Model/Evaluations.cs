@@ -9,7 +9,7 @@ namespace demo.Model
         [Key]
         public int EvaluationId { get; set; }
 
-        [ForeignKey("Submissions")]
+        [ForeignKey("Submission")]
         public int SubmissionId { get; set; }
         public Submissions? Submission { get; set; }
 

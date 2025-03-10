@@ -7,6 +7,59 @@
   overflow: hidden;
   transition: transform 0.3s ease;
 }
+.card-containers{
+  max-width: 400px;
+  background: linear-gradient(to bottom right, #1e3a8a, #2563eb);
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  margin-left: 200px;
+}
+.card-containerss{
+  max-width: 400px;
+  background: linear-gradient(to bottom right, #1e3a8a, #2563eb);
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+}
+/* Đây là Css của bên staffDashBoard */
+.cardContent{ 
+  max-width: 400px;
+  background: linear-gradient(135deg, #FF9A8B, #FF6A88, #FF99AC);
+  border-radius: 12px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  transition: transform 0.3s ease-in-out;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  color: white;
+}
+.cardContentt{ 
+  max-width: 400px;
+
+  border-radius: 12px ;
+  background-color: white;
+  padding: 20px;
+  transition: transform 0.3s ease-in-out;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+ 
+}
+
+.card-containerssss{
+  background: linear-gradient(135deg, #12C2E9, #C471ED, #F64F59);
+  color: #333333; /* Màu chữ dễ đọc */
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  
+  font-weight: bold;
+}
 
 .card-container:hover {
   transform: scale(1.05);
@@ -14,7 +67,17 @@
 
 .card-content {
   padding: 1.5rem;
+  width: 270px;
+  height: auto;
+
 }
+.card-contented{
+  padding: 1.5rem;
+  width: 350px;
+  height: auto;
+
+}
+
 
 .card-title {
   font-size: 1.5rem;
@@ -22,17 +85,26 @@
   color: white;
 }
 
-.card-status {
-  padding: 0.25rem 0.5rem;
-  font-size: 0.75rem;
+.card-sta {
+  display: inline-block; /* Giúp trạng thái vừa với nội dung */
+  padding: 25px 6px 2px 6px; /* Trên | Phải | Dưới | Trái */
+  border-radius: 8px; /* Bo góc cho đẹp */
   font-weight: bold;
-  border-radius: 0.25rem;
+  font-size: 12px;
+  color: white;
+  text-align: center;
+  width: auto;
+  height: auto;
 }
 
 .card-status.open {
   background-color: #34d399;
-  color: #065f46;
+  
 }
+.card-status.upcoming {
+  background-color: orange;
+}
+
 
 .card-status.closed {
   background-color: #f87171;
@@ -46,19 +118,132 @@
 
 .card-details {
   color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  
 }
 
 .card-button {
   margin-top: 1rem;
-  color: #d1d5db;
+  color: black;
   transition: color 0.2s ease;
 }
 
 .card-button:hover {
-  color: white;
+  color: red;
+  background-color: yellow;
 }
 
 .card-expanded {
   padding: 1.5rem;
   color: #d1d5db;
+}
+
+.awards-section {
+  margin-top: 1rem;
+}
+
+.awards-section .MuiTypography-subtitle1 {
+  display: flex;
+  align-items: center;
+  color: #2563eb;
+}
+
+.awards-section .MuiTypography-body2 {
+  font-weight: bold;
+  color: #ffdd00;
+}
+
+
+.joined-fill{
+    background-color: white;
+    border-radius: 8px;
+    text-align: center;
+    color: red;
+  }
+.font-semibold{
+  padding: 0px 0px 0 0 ;
+}
+.symbol{
+  padding: 0px 10px 0px 0px ;
+  
+}
+.card-description{
+ text-align: center;
+}
+.items{
+  padding: 13px 0px 0 0;
+}
+.items-start{
+  padding: 0px 0 0 0;
+}
+.tablelist {
+  width: 80%; /* Giảm chiều rộng bảng để không quá to */
+  margin: 0 auto; /* Căn giữa bảng */
+  border-collapse: collapse;
+}
+/* .tablelist th, .tablelist td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+} */
+
+.users-joined{
+ 
+  position: absolute;
+  
+  top: 70px; /* Điều chỉnh giá trị này để đẩy lên */
+  right: 20px; /* Đảm bảo cách phải 30px */
+  color: white;
+  width: 90%;
+  height: 400px;
+  max-width: 800px;
+  background: linear-gradient(to bottom, #2563eb, #1e3a8a); /* Gradient xanh đẹp */
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  
+}
+.table-container {
+  max-height: 400px; /* Chiều cao tối đa của bảng */
+  overflow-y: auto;  /* Thêm thanh cuộn dọc khi nội dung quá dài */
+  overflow-x: hidden; /* Ẩn thanh cuộn ngang nếu không cần thiết */
+}
+.tablelist {
+  width: 100%; /* Bảng chiếm toàn bộ chiều rộng */
+  border-collapse: collapse;
+  table-layout: auto; /* Cho phép các cột mở rộng theo nội dung */
+}
+
+.tablelist th,
+.tablelist td {
+  padding: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: nowrap;
+}
+
+.tablelist th:nth-child(1),
+.tablelist td:nth-child(1) { /* Name */
+  width: 20%; /* Chiếm 20% chiều rộng */
+  text-align: left;
+}
+
+.tablelist th:nth-child(2),
+.tablelist td:nth-child(2) { /* Title */
+  width: 25%;
+  text-align: center;
+}
+
+.tablelist th:nth-child(3),
+.tablelist td:nth-child(3) { /* Description */
+  width: 55%; /* Chiếm nhiều diện tích hơn */
+  text-align: left;
+  white-space: normal;
 }

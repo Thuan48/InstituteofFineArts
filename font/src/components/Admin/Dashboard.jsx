@@ -117,12 +117,32 @@ const Dashboard = () => {
 
       <div className="mt-8">
         <div style={{ display: 'flex', gap: '1rem', marginBottom: '1rem' }}>
-          <button onClick={() => setSortBy("month")}>Month</button>
-          <button onClick={() => setSortBy("year")}>Year</button>
+          <button
+            onClick={() => setSortBy("month")}
+            style={{ backgroundColor: sortBy === "month" ? '#3182ce' : '#f9f9f9', color: sortBy === "month" ? '#fff' : '#000' }}
+          >
+            Month
+          </button>
+          <button
+            onClick={() => setSortBy("year")}
+            style={{ backgroundColor: sortBy === "year" ? '#3182ce' : '#f9f9f9', color: sortBy === "year" ? '#fff' : '#000' }}
+          >
+            Year
+          </button>
           {sortBy === "month" && (
             <>
-              <button onClick={() => setGranularity("day")}>Day</button>
-              <button onClick={() => setGranularity("week")}>Week</button>
+              <button
+                onClick={() => setGranularity("day")}
+                style={{ backgroundColor: granularity === "day" ? '#3182ce' : '#f9f9f9', color: granularity === "day" ? '#fff' : '#000' }}
+              >
+                Day
+              </button>
+              <button
+                onClick={() => setGranularity("week")}
+                style={{ backgroundColor: granularity === "week" ? '#3182ce' : '#f9f9f9', color: granularity === "week" ? '#fff' : '#000' }}
+              >
+                Week
+              </button>
             </>
           )}
         </div>

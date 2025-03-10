@@ -8,6 +8,8 @@ import { awardReducer } from "./Award/Reducer";
 import exhibitionReducer from "./Exhibition/Reducer";
 import exhibitionSubmissionReducer from "./ExhibitionSubmission/Reducer";
 import evaluationReducer from "./Evaluation/Reducer";
+import orderReducer from "./Order/Reducer";
+import saleReducer from "./Sale/Reducer";
 
 const rootReducer = combineReducers({
   competitions: competitionReducer,
@@ -18,6 +20,8 @@ const rootReducer = combineReducers({
   exhibitions: exhibitionReducer,
   exhibitionSubmissions: exhibitionSubmissionReducer,
   evaluations: evaluationReducer,
+  orders: orderReducer,
+  sales: saleReducer,
 });
 
 export const store = legacy_createStore(rootReducer, applyMiddleware(thunk));

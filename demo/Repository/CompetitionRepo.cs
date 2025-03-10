@@ -50,6 +50,7 @@ namespace demo.Repository
                     {
                         competition.Status = "Close";
                         _context.Competitions.Update(competition);
+                        await AutoAwardUsersForCompetition(competition.CompetitionId);
                     }
                 }
             }
@@ -80,7 +81,7 @@ namespace demo.Repository
                 Status = competitionDto.Status,
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now,
-                CreatedBy = competitionDto.CreatedBy 
+                CreatedBy = competitionDto.CreatedBy
             };
 
             if (competitionDto.Image != null)
@@ -121,7 +122,7 @@ namespace demo.Repository
             competition.AwardsDescription = competitionDto.AwardsDescription;
             competition.Status = competitionDto.Status;
             competition.UpdatedAt = DateTime.Now;
-            competition.CreatedBy = competitionDto.CreatedBy; 
+            competition.CreatedBy = competitionDto.CreatedBy;
 
             if (competitionDto.Image != null)
             {
@@ -184,6 +185,35 @@ namespace demo.Repository
         private string GenerateUniqueName(string fileName)
         {
             return $"{Guid.NewGuid()}_{Path.GetFileName(fileName)}";
+        }
+
+        private async Task AutoAwardUsersForCompetition(int competitionId)
+        {
+            var submissions = await _context.Submissions
+                .Where(s => s.CompetitionId == competitionId)
+                .Include(s => s.Evaluations)
+                .ToListAsync();
+
+            var highestScoreSubmission = submissions
+                .Where(s => s.Evaluations != null)
+                .SelectMany(s => s.Evaluations!, (s, e) => new { Submission = s, Evaluation = e })
+                .OrderByDescending(se => se.Evaluation.Score)
+                .FirstOrDefault();
+
+            if (highestScoreSubmission != null)
+            {
+                var highestPrizeAward = await _context.Awards
+                    .Where(a => a.CompetitionId == competitionId && a.UserId == null)
+                    .OrderByDescending(a => a.PrizeMoney)
+                    .FirstOrDefaultAsync();
+
+                if (highestPrizeAward != null)
+                {
+                    highestPrizeAward.UserId = highestScoreSubmission.Submission.UserId;
+                    _context.Awards.Update(highestPrizeAward);
+                    await _context.SaveChangesAsync();
+                }
+            }
         }
     }
 }

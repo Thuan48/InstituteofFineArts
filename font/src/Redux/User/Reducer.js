@@ -1,4 +1,4 @@
-import { FETCH_USER_BY_ID, FETCH_USERS, FETCH_CURRENT_USER, ADD_USER, UPDATE_USER, DELETE_USER, EXPORT_EXCEL, IMPORT_EXCEL } from "./ActionType";
+import { FETCH_USER_BY_ID, FETCH_USERS, FETCH_CURRENT_USER, ADD_USER, UPDATE_USER, DELETE_USER, EXPORT_EXCEL, IMPORT_EXCEL, CHANGE_PASSWORD, FORGOT_PASSWORD, RESET_PASSWORD } from "./ActionType";
 
 const initialValue = {
   users: [],
@@ -39,8 +39,27 @@ export const userReducer = (store = initialValue, { type, payload }) => {
         users: store.users.filter(user => user.userId !== payload),
       };
     case EXPORT_EXCEL:
-    case IMPORT_EXCEL:
       return store;
+    case IMPORT_EXCEL:
+      return {
+        ...store,
+        users: payload,
+      };
+    case CHANGE_PASSWORD:
+      return {
+        ...store,
+        currentUser: { ...store.currentUser, password: payload.newPassword }
+      };
+    case FORGOT_PASSWORD:
+      return {
+        ...store,
+        forgotPasswordStatus: payload
+      };
+    case RESET_PASSWORD:
+      return {
+        ...store,
+        resetPasswordStatus: payload
+      };
     default:
       return store;
   }

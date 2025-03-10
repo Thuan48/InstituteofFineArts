@@ -1,24 +1,26 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllCompetitions, searchCompetitions } from '../Redux/Competition/Action';
-import { Container, Typography, Button, ButtonGroup, TextField, Select, MenuItem, FormControl, InputLabel } from '@mui/material';
+import { getAllAwards } from '../Redux/Award/Action';
+import { Container, Typography, Button, ButtonGroup, TextField, Select, MenuItem, FormControl, InputLabel, Dialog, DialogTitle, DialogContent, DialogActions } from '@mui/material';
 import HomeAppBar from './HomeAppBar';
 import CompetitionCard from './CompetitionCard';
 
 const HomePage = () => {
   const dispatch = useDispatch();
   const competitions = useSelector(state => state.competitions.competitions);
+  const awards = useSelector(state => state.awards.awards);
   const [pageNumber, setPageNumber] = useState(1);
   const pageSize = 6;
   const [searchTerm, setSearchTerm] = useState("");
   const [statusFilter, setStatusFilter] = useState("");
-
   useEffect(() => {
     if (searchTerm) {
       dispatch(searchCompetitions(searchTerm, pageNumber, pageSize));
     } else {
       dispatch(getAllCompetitions(pageNumber, pageSize));
     }
+    dispatch(getAllAwards());
   }, [dispatch, pageNumber, searchTerm]);
 
   const handlePageChange = (newPageNumber) => {
@@ -45,11 +47,11 @@ const HomePage = () => {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             fullWidth
-            InputLabelProps={{ style: { color: 'white' } }}
-            InputProps={{ style: { color: 'white' } }}
+            InputLabelProps={{ style: { color: 'black' } }}
+            InputProps={{ style: { color: 'black' } }}
           />
           <FormControl variant="outlined" size="small" style={{ maxWidth: '120px', width: '100%' }}>
-            <InputLabel style={{ color: 'white' }}>Status</InputLabel>
+            <InputLabel style={{ color: 'black' }}>Status</InputLabel>
             <Select
               value={statusFilter}
               onChange={(e) => setStatusFilter(e.target.value)}

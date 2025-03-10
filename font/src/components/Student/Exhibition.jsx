@@ -13,6 +13,8 @@ const Exhibition = () => {
   const token = getToken()
   const [exhibitionPage, setExhibitionPage] = useState(1)
   const [exhibitionPageSize] = useState(6)
+  const [submissionPage, setSubmissionPage] = useState(1)
+  const [submissionPageSize] = useState(10)
   const [openDialog, setOpenDialog] = useState(false)
   const [selectedExhibitionSubmissions, setSelectedExhibitionSubmissions] = useState([])
 
@@ -24,11 +26,11 @@ const Exhibition = () => {
     if (token) {
       dispatch(fetchCurrentUser(token))
       dispatch(getAllExhibitions(exhibitionPage, exhibitionPageSize))
-      dispatch(getAllExhibitionSubmissions())
+      dispatch(getAllExhibitionSubmissions(submissionPage, submissionPageSize))
     } else {
       navigate('/login')
     }
-  }, [token, dispatch, navigate, exhibitionPage, exhibitionPageSize])
+  }, [token, dispatch, navigate, exhibitionPage, exhibitionPageSize, submissionPage, submissionPageSize])
 
   if (currentUser && currentUser.role !== 'STUDENT') {
     return (
@@ -58,8 +60,12 @@ const Exhibition = () => {
     setOpenDialog(true)
   }
 
-  const handlePageChange = (event, value) => {
+  const handleExhibitionPageChange = (event, value) => {
     setExhibitionPage(value)
+  }
+
+  const handleSubmissionPageChange = (event, value) => {
+    setSubmissionPage(value)
   }
 
   const imageLink = import.meta.env.VITE_API_IMAGE_PATH
@@ -73,11 +79,11 @@ const Exhibition = () => {
         <>
           <Grid container spacing={2}>
             {userExhibitions.slice((exhibitionPage - 1) * exhibitionPageSize, exhibitionPage * exhibitionPageSize).map((exhibition) => (
-              <Grid item xs={12} sm={6} md={4} key={exhibition.exhibitionId}>
+              <Grid item xs={12} md={8} key={exhibition.exhibitionId}>
                 <Card style={{ marginBottom: '1rem', cursor: 'pointer' }} onClick={() => handleExhibitionClick(exhibition.exhibitionId)}>
                   <CardContent>
                     <img
-                      src={`${imageLink}/${exhibition.image || 'placeholder.jpg'}`}
+                      src={`${imageLink}/${exhibition.image || '10.png'}`}
                       alt="Exhibition Image"
                       style={{ width: '100%', height: '150px', objectFit: 'cover', marginBottom: '1rem' }}
                     />
@@ -101,7 +107,7 @@ const Exhibition = () => {
           <Pagination
             count={Math.ceil(userExhibitions.length / exhibitionPageSize)}
             page={exhibitionPage}
-            onChange={handlePageChange}
+            onChange={handleExhibitionPageChange}
             style={{ marginTop: '1rem' }}
           />
         </>
@@ -116,30 +122,38 @@ const Exhibition = () => {
             My Submissions
           </Typography>
           {selectedExhibitionSubmissions.length > 0 ? (
-            <Grid container spacing={2}>
-              {selectedExhibitionSubmissions.map((submission) => (
-                <Grid item xs={12} sm={6} md={4} key={submission.exhibitionSubmissionId}>
-                  <Card style={{ marginBottom: '1rem' }}>
-                    <CardContent>
-                      <img
-                        src={`${imageLink}/${submission.submission.filePath || 'placeholder.jpg'}`}
-                        alt="Submission Image"
-                        style={{ width: '100%', height: '150px', objectFit: 'cover', marginBottom: '1rem' }}
-                      />
-                      <Typography variant="h6" gutterBottom>
-                        {submission.submission.title || 'Submission Title'}
-                      </Typography>
-                      <Typography variant="body2">
-                        Price: ${submission.price}
-                      </Typography>
-                      <Typography variant="body2">
-                        Status: {submission.status}
-                      </Typography>
-                    </CardContent>
-                  </Card>
-                </Grid>
-              ))}
-            </Grid>
+            <>
+              <Grid container spacing={2}>
+                {selectedExhibitionSubmissions.slice((submissionPage - 1) * submissionPageSize, submissionPage * submissionPageSize).map((submission) => (
+                  <Grid item xs={12} md={8} key={submission.exhibitionSubmissionId}>
+                    <Card style={{ marginBottom: '1rem' }}>
+                      <CardContent>
+                        <img
+                          src={`${imageLink}/${submission.submission.filePath || '10.png'}`}
+                          alt="Submission Image"
+                          style={{ width: '100%', height: '150px', objectFit: 'cover', marginBottom: '1rem' }}
+                        />
+                        <Typography variant="h6" gutterBottom>
+                          {submission.submission.title || 'Submission Title'}
+                        </Typography>
+                        <Typography variant="body2">
+                          Price: ${submission.price}
+                        </Typography>
+                        <Typography variant="body2">
+                          Status: {submission.status}
+                        </Typography>
+                      </CardContent>
+                    </Card>
+                  </Grid>
+                ))}
+              </Grid>
+              <Pagination
+                count={Math.ceil(selectedExhibitionSubmissions.length / submissionPageSize)}
+                page={submissionPage}
+                onChange={handleSubmissionPageChange}
+                style={{ marginTop: '1rem' }}
+              />
+            </>
           ) : (
             <Alert severity="info" style={{ margin: '1rem auto', textAlign: 'center', maxWidth: '50%' }}>
               No submissions found for this exhibition.
